@@ -2,6 +2,10 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import SendIcon from '@mui/icons-material/Send';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export default function Create() {
   return (
@@ -19,14 +23,19 @@ export default function Create() {
         type="submit"
         color="secondary"
         variant="contained"
+        startIcon={<SendIcon />}
+        endIcon={<KeyboardArrowRightIcon />}
       >Submit</Button>
 
-      {/* <Button type="submit" color="secondary" variant="outlined">Un-submit</Button>
-      <ButtonGroup color="secondary" variant="contained">
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-      </ButtonGroup> */}
+    {/* icons */}
+      <br />
+      <AccessAlarmIcon color="secondary" fontSize="large" />
+      <AccessAlarmIcon color="secondary" fontSize="small" />
+      <AccessAlarmIcon color="action" fontSize="large" />
+      <AccessAlarmIcon color="error" fontSize="large" />
+      <AccessAlarmIcon color="disabled" fontSize="large" />
+      <br />
+      <AcUnitIcon color="secondary" />
     </Container>
   );
 }
