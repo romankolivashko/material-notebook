@@ -8,6 +8,7 @@ import SendIcon from '@mui/icons-material/Send';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { makeStyles } from '@material-ui/core'; //needs to be destructured as a function, but not component
 
+
 const useStyles = makeStyles({
   btn: {
     fontSize: 60,
@@ -30,7 +31,6 @@ export default function Create() {
   return (
     <Container>
       <Typography
-        className={classes.title}
         variant="h6"
         color="textSecondary"
         component="h2"
@@ -39,14 +39,19 @@ export default function Create() {
         Create a New Note
       </Typography>
       <Button 
-        className={classes.btn}
         onClick = {()=> console.log("clicked me")}
         type="submit"
-        color="secondary"
+        // color="secondary"
         variant="contained"
         startIcon={<SendIcon />}
         endIcon={<KeyboardArrowRightIcon />}
       >Submit</Button>
+      <Button 
+        onClick = {()=> console.log("clicked me")}
+        type="submit"
+        color="secondary"
+        variant="contained"
+      >Yet Another Button</Button>
 
     {/* icons */}
       <br />
