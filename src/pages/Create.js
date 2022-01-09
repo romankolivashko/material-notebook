@@ -6,11 +6,31 @@ import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import SendIcon from '@mui/icons-material/Send';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { makeStyles } from '@material-ui/core'; //needs to be destructured as a function, but not component
+
+const useStyles = makeStyles({
+  btn: {
+    fontSize: 60,
+    backgroundColor: 'violet',
+    '&:hover' : {
+      backgroundColor: 'brown'
+    }
+  },
+  title: {
+    textDecoration: 'underline',
+    marginBottom: 20
+  }
+})
+
+
 
 export default function Create() {
+  const classes = useStyles()
+
   return (
     <Container>
       <Typography
+        className={classes.title}
         variant="h6"
         color="textSecondary"
         component="h2"
@@ -19,6 +39,7 @@ export default function Create() {
         Create a New Note
       </Typography>
       <Button 
+        className={classes.btn}
         onClick = {()=> console.log("clicked me")}
         type="submit"
         color="secondary"
