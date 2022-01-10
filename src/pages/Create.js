@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Typography } from "@material-ui/core";
+import { FormControlLabel, TextField, Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
@@ -8,6 +8,11 @@ import SendIcon from "@mui/icons-material/Send";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { makeStyles } from "@material-ui/core"; //needs to be destructured as a function, but not component
 // import { TextField } from "@material-ui/core";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import { Category } from "@mui/icons-material";
+import FormLabel from "@material-ui/core/FormLabel";
+import FormControl from "@material-ui/core/FormControl";
 
 const useStyles = makeStyles({
   field: {
@@ -23,22 +28,23 @@ export default function Create() {
   const [details, setDetails] = useState("");
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
+  const [category, setCategory] = useState("todos");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setTitleError(false);
     setDetailsError(false);
 
-    if (title == '') {
-      setTitleError(true)
+    if (title == "") {
+      setTitleError(true);
     }
-    if (details == '') {
-      setDetailsError(true)
+    if (details == "") {
+      setDetailsError(true);
     }
 
-
-
-    if (title && details) console.log(title, details);
+    if (title && details) {
+      console.log(title, details, category);
+    }
   };
 
   return (
@@ -61,7 +67,7 @@ export default function Create() {
           fullWidth
           required
           error={titleError}
-          />
+        />
         <TextField
           onChange={(e) => setDetails(e.target.value)}
           className={classes.field}
@@ -73,14 +79,26 @@ export default function Create() {
           required
           error={detailsError}
         />
+        <FormControl className={classes.field}>
+          <FormLabel>Note Category:</FormLabel>
+          <RadioGroup
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <FormControlLabel value="money" control={<Radio />} label="Money" />
+            <FormControlLabel value="todos" control={<Radio />} label="ToDos" />
+            <FormControlLabel
+              value="reminders"
+              control={<Radio />}
+              label="Reminders"
+            />
+            <FormControlLabel value="work" control={<Radio />} label="Work" />
+          </RadioGroup>
 
-        <Button
-          type="submit"
-          color="primary"
-          variant="contained"
-        >
-          Submit
-        </Button>
+          <Button type="submit" color="primary" variant="contained">
+            Submit
+          </Button>
+        </FormControl>
       </form>
 
       {/* icons */}
