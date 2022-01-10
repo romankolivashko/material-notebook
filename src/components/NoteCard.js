@@ -1,0 +1,30 @@
+import React from "react";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import { IconButton, Typography } from "@material-ui/core";
+import { DeleteOutlined } from "@mui/icons-material";
+import Notes from "../pages/Notes";
+
+export default function NoteCard({ note }) {
+  return (
+    <div>
+      <Card elevation={3}>
+        <CardHeader
+          action={
+            <IconButton onClick={() => console.log('delete', note.title)}>
+              <DeleteOutlined />
+            </IconButton>
+          }
+          title={note.title}
+          subheader={note.category}
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary">
+            {note.details}
+          </Typography>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

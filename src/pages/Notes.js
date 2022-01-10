@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Container from "@material-ui/core/Container";
+import NoteCard from "../components/NoteCard";
 
 export default function Notes() {
   const [notes, setNotes] = useState([]);
@@ -29,10 +30,10 @@ export default function Notes() {
         </Grid>
       </Grid> */}
 
-      <Grid container>
+      <Grid container spacing={3}>
         {notes.map((note) => (
           <Grid item key={note.id} xs={12} md={6} lg={4}>
-            <Paper>{ note.title }</Paper>  
+            <NoteCard note={note} />
           </Grid>
         ))}
       </Grid>
