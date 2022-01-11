@@ -11,7 +11,7 @@ import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
 import { useHistory, useLocation } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { green } from "@material-ui/core/colors";
+import { format } from 'date-fns'
 
 const drawerWidth = 240;
 
@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => {
       width: `calc(100% - ${drawerWidth}px)`,
     },
     toolbar: theme.mixins.toolbar,
+    date: {
+      flexGrow: 1
+    }
   };
 });
 
@@ -67,7 +70,12 @@ export default function Layout({ children }) {
       {/* app bar */}
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar>
-          <Typography>Welcome to the Awesome Note Taking App!</Typography>
+          <Typography className={classes.date}>
+            Today is the { format(new Date(), 'do MMMM Y') }
+          </Typography>
+          <Typography>
+            John Smith
+          </Typography>
         </Toolbar>
       </AppBar>
 
