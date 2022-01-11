@@ -11,7 +11,8 @@ import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
 import { useHistory, useLocation } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { format } from 'date-fns'
+import { format } from 'date-fns';
+import { Avatar } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -43,6 +44,10 @@ const useStyles = makeStyles((theme) => {
     toolbar: theme.mixins.toolbar,
     date: {
       flexGrow: 1
+    },
+    avatar: {
+      marginLeft: theme.spacing(2), 
+      backgroundColor: '#fff'
     }
   };
 });
@@ -76,6 +81,7 @@ export default function Layout({ children }) {
           <Typography>
             John Smith
           </Typography>
+          <Avatar src="/jake.svg" className={classes.avatar} />
         </Toolbar>
       </AppBar>
 
