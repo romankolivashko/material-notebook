@@ -9,6 +9,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
 import { useHistory, useLocation } from "react-router-dom";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import { green } from "@material-ui/core/colors";
 
 const drawerWidth = 240;
 
@@ -17,7 +20,7 @@ const useStyles = makeStyles((theme) => {
     page: {
       background: "#f9f9f9f",
       width: "100%",
-      padding: theme.spacing(3)
+      padding: theme.spacing(3),
     },
     drawer: {
       width: drawerWidth,
@@ -32,8 +35,12 @@ const useStyles = makeStyles((theme) => {
       background: "#f4f4f4",
     },
     title: {
-      padding: theme.spacing(2)
-    }
+      padding: theme.spacing(2),
+    },
+    appbar: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+    toolbar: theme.mixins.toolbar,
   };
 });
 
@@ -58,6 +65,11 @@ export default function Layout({ children }) {
   return (
     <div className={classes.root}>
       {/* app bar */}
+      <AppBar className={classes.appbar} elevation={0}>
+        <Toolbar>
+          <Typography>Welcome to the Awesome Note Taking App!</Typography>
+        </Toolbar>
+      </AppBar>
 
       {/* side drawer */}
       <Drawer
@@ -67,7 +79,9 @@ export default function Layout({ children }) {
         classes={{ paper: classes.drawerPaper }}
       >
         <div>
-          <Typography variant="h5" className={classes.title}>Notes</Typography>
+          <Typography variant="h5" className={classes.title}>
+            Notes
+          </Typography>
         </div>
 
         {/* list / links */}
@@ -104,7 +118,10 @@ export default function Layout({ children }) {
         </List>
       </Drawer>
 
-      <div className={classes.page}>{children}</div>
+      <div className={classes.page}>
+        <div className={classes.toolbar}></div>
+        {children}
+      </div>
     </div>
   );
 }
