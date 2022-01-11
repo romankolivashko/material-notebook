@@ -29,6 +29,12 @@
       "details": "test3 details\n",
       "category": "todos",
       "id": 7
+    },
+    {
+      "title": "Pay Rent",
+      "details": "End of the month, rent will be due soon",
+      "category": "money",
+      "id": 8
     }
   ]
 }
