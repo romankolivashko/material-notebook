@@ -6,13 +6,13 @@ import { IconButton, Typography } from "@material-ui/core";
 import { DeleteOutlined } from "@mui/icons-material";
 import Notes from "../pages/Notes";
 
-export default function NoteCard({ note }) {
+export default function NoteCard({ note, handleDelete }) {
   return (
     <div>
       <Card elevation={3}>
         <CardHeader
           action={
-            <IconButton onClick={() => console.log('delete', note.title)}>
+            <IconButton onClick={() => handleDelete(note.id)}>
               <DeleteOutlined />
             </IconButton>
           }

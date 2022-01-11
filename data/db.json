@@ -23,6 +23,12 @@
       "details": "Very delish ice-cream from store",
       "category": "reminders",
       "id": 4
+    },
+    {
+      "title": "test3",
+      "details": "test3 details\n",
+      "category": "todos",
+      "id": 7
     }
   ]
 }
